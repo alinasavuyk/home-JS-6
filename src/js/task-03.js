@@ -14,14 +14,13 @@ const images = [
 ];
 const onLinkToGallery =document.querySelector('ul.gallery')
 
-const itemEl = images.map(image => image.url)
-//console.log(itemEl);
+const itemEl = images.map(image => image)
 
 
-
-const elementToImages =itemEl.map( (item) => {
+const elementToImages =itemEl.map( (itemEl) => {
   const navLinkItemImages = document.createElement('li');
-  navLinkItemImages.src = item;
+  navLinkItemImages.src = itemEl.url;
+  navLinkItemImages.alt = itemEl.alt;
   navLinkItemImages.width = 270;
   navLinkItemImages.classList.add("gallery__item")
   return navLinkItemImages;
@@ -30,6 +29,7 @@ onLinkToGallery.append(...elementToImages);
 console.log(onLinkToGallery)
 console.log(elementToImages)
 //element.append(el1, el2, ...)
+//console.log(itemEl);
 
 //const list = document.querySelector('ul.gallery');
 //const elementToImages =images.map( ({url, alt}) => `<li class="gallery__item"> <img src=${url} alt=${alt}> </li>`).join('');
