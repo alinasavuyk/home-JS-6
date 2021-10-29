@@ -12,26 +12,10 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-const onLinkToGallery =document.querySelector('ul.gallery')
+const onLinkToImages =document.querySelector('ul.gallery')
 
-const itemEl = images.map(image => image)
+images.forEach(image => {
+  onLinkToImages.insertAdjacentHTML('afterbegin', `<li class "item"><img src = "${image.url}" alt = "${image.alt}"  width = "270" /></li>`,);
+});
+onLinkToImages.style.display = `flex`;
 
-
-const elementToImages =itemEl.map( (itemEl) => {
-  const navLinkItemImages = document.createElement('li');
-  navLinkItemImages.src = itemEl.url;
-  navLinkItemImages.alt = itemEl.alt;
-  navLinkItemImages.width = 270;
-  navLinkItemImages.classList.add("gallery__item")
-  return navLinkItemImages;
-})
-onLinkToGallery.append(...elementToImages);
-console.log(onLinkToGallery)
-console.log(elementToImages)
-//element.append(el1, el2, ...)
-//console.log(itemEl);
-
-//const list = document.querySelector('ul.gallery');
-//const elementToImages =images.map( ({url, alt}) => `<li class="gallery__item"> <img src=${url} alt=${alt}> </li>`).join('');
-
-//list.insertAdjacentHTML('afterbegin', listItems);
